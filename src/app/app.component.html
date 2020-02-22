@@ -1,0 +1,20 @@
+<form #rform='ngForm' (ngSubmit)='su(rform.value)'>
+    <input ngModel name="id" placeholder="id" ><br>
+  <input ngModel name="fname" placeholder="firstname"><br>
+  <input ngModel name="lname" placeholder="lastname"><br>
+  <input type='submit'>
+</form>
+<button (click)='up(this.rform.value)'>update</button>
+<table border>
+  <tr>
+      <th>sl.no</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+  </tr>
+<tr *ngFor='let data of fdata,let i=index'>
+    <td>{{i+1}}</td>
+  <td>{{data.fname}}</td>
+  <td>{{data.lname}}</td>
+  <td><button (click)='edit(data)'>edit</button>&nbsp;<button (click)='del(data)'>delete</button></td>
+</tr>
+</table>
